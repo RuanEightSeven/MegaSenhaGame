@@ -4,6 +4,11 @@
  */
 package megasenha1;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
@@ -16,12 +21,30 @@ public class MegaSenha1  {
     /**
      * @param args the command line arguments
      */
+    public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // Carrega o arquivo FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaInicio.fxml"));
+        Parent root = loader.load();
+
+        // Obtém o controlador da tela
+        TelaInicioController controller = loader.getController();
+
+        // Configura a cena
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Sua Aplicação");
+        primaryStage.show();
+    }
+    }
     public static void main(String[] args) {
         // TODO code application logic here
+        launch(args);
         
         
-        
+    
     }
-  
 
 }
